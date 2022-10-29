@@ -28,15 +28,15 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        one = new javax.swing.JButton();
+        two = new javax.swing.JButton();
+        three = new javax.swing.JButton();
+        four = new javax.swing.JButton();
+        five = new javax.swing.JButton();
+        six = new javax.swing.JButton();
+        seven = new javax.swing.JButton();
+        eight = new javax.swing.JButton();
+        empty = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
@@ -49,9 +49,9 @@ public class GUI extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        solPath = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        testedNodes = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -63,35 +63,43 @@ public class GUI extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.GridLayout(3, 3, -1, -1));
 
-        jButton1.setText("1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        one.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        one.setText("1");
+        one.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                oneActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
+        jPanel1.add(one);
 
-        jButton2.setText("2");
-        jPanel1.add(jButton2);
+        two.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        two.setText("2");
+        jPanel1.add(two);
 
-        jButton3.setText("3");
-        jPanel1.add(jButton3);
+        three.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        three.setText("3");
+        jPanel1.add(three);
 
-        jButton4.setText("4");
-        jPanel1.add(jButton4);
+        four.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        four.setText("4");
+        jPanel1.add(four);
 
-        jButton5.setText("5");
-        jPanel1.add(jButton5);
+        five.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        five.setText("5");
+        jPanel1.add(five);
 
-        jButton6.setText("6");
-        jPanel1.add(jButton6);
+        six.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        six.setText("6");
+        jPanel1.add(six);
 
-        jButton7.setText("7");
-        jPanel1.add(jButton7);
+        seven.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        seven.setText("7");
+        jPanel1.add(seven);
 
-        jButton8.setText("8");
-        jPanel1.add(jButton8);
-        jPanel1.add(jButton9);
+        eight.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        eight.setText("8");
+        jPanel1.add(eight);
+        jPanel1.add(empty);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 245, 340, 280));
 
@@ -138,17 +146,17 @@ public class GUI extends javax.swing.JFrame {
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setEnabled(false);
-        jScrollPane1.setViewportView(jTextArea1);
+        solPath.setColumns(20);
+        solPath.setRows(5);
+        solPath.setEnabled(false);
+        jScrollPane1.setViewportView(solPath);
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 210));
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jTextArea2.setEnabled(false);
-        jScrollPane2.setViewportView(jTextArea2);
+        testedNodes.setColumns(20);
+        testedNodes.setRows(5);
+        testedNodes.setEnabled(false);
+        jScrollPane2.setViewportView(testedNodes);
 
         jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 286, -1, 230));
 
@@ -163,9 +171,9 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void oneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_oneActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
@@ -211,16 +219,11 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton eight;
+    private javax.swing.JButton empty;
+    private javax.swing.JButton five;
+    private javax.swing.JButton four;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
@@ -234,9 +237,14 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton one;
+    private javax.swing.JButton seven;
+    private javax.swing.JButton six;
+    private javax.swing.JTextArea solPath;
+    private javax.swing.JTextArea testedNodes;
+    private javax.swing.JButton three;
+    private javax.swing.JButton two;
     // End of variables declaration//GEN-END:variables
 }
