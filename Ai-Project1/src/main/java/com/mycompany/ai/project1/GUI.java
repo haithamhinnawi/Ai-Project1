@@ -5,17 +5,71 @@
  */
 package com.mycompany.ai.project1;
 
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import java.util.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Haitham
  */
 public class GUI extends javax.swing.JFrame {
-
+    Color color=new Color(18,21,30);
+    Color color1=new Color(204,0,0);
+        String [] startPoint=new String[9];
+        String [] endPoint=new String[9];
     /**
      * Creates new form GUI
      */
     public GUI() {
         initComponents();
+        jPanel3.setVisible(false);
+        jPanel2.setVisible(false);
+        for(int i=0;i<9;i++){
+            getGridPanel()[i].setVisible(false);
+        }
+    }
+    
+    public javax.swing.JPanel [] getGridPanel() {
+        javax.swing.JPanel [] gridPanel = {grid1,grid2,grid3,grid4,grid5,grid6,grid7,grid8,grid9};
+        return gridPanel;
+    }
+    public javax.swing.JLabel [] getGridLabel() {
+        javax.swing.JLabel [] gridLabel={gridLabel1,gridLabel2,gridLabel3,gridLabel4,gridLabel5,gridLabel6,gridLabel7,gridLabel8,gridLabel9};
+        return gridLabel;
+    }
+    public javax.swing.JPanel [] getClickPanel() {
+        javax.swing.JPanel [] clickPanel={click1,click2,click3,click4,click5,click6,click7,click8,click9};
+        return clickPanel;
+    }
+    public javax.swing.JLabel [] getClickLabel() {
+        javax.swing.JLabel [] clickLabel={clickLabel1,clickLabel2,clickLabel3,clickLabel4,clickLabel5,clickLabel6,clickLabel7,clickLabel8,clickLabel9};
+        return clickLabel;
+    }
+    
+    public void onPanelClick(String index){
+        for(int i=0;i<9;i++){
+            if(getGridLabel()[i].getText().equals("")){
+                getGridPanel()[i].setVisible(true);
+                getGridLabel()[i].setText(index);
+                if(getGridLabel()[i].getText().equals(" ")){
+                    getClickPanel()[8].setVisible(false);
+                    getGridPanel()[i].setBackground(color);
+                }
+                else
+                    getClickPanel()[Integer.parseInt(index)-1].setVisible(false);
+                break;
+            }
+        }
+    }
+    public void onGridClick(String index){
+        if(index==" "){
+            getClickPanel()[8].setVisible(true);
+        }
+        else{
+            getClickPanel()[Integer.parseInt(index)-1].setVisible(true);
+        }
     }
 
     /**
@@ -27,161 +81,761 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        one = new javax.swing.JButton();
-        two = new javax.swing.JButton();
-        three = new javax.swing.JButton();
-        four = new javax.swing.JButton();
-        five = new javax.swing.JButton();
-        six = new javax.swing.JButton();
-        seven = new javax.swing.JButton();
-        eight = new javax.swing.JButton();
-        empty = new javax.swing.JButton();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        grid1 = new javax.swing.JPanel();
+        gridLabel1 = new javax.swing.JLabel();
+        grid2 = new javax.swing.JPanel();
+        gridLabel2 = new javax.swing.JLabel();
+        grid3 = new javax.swing.JPanel();
+        gridLabel3 = new javax.swing.JLabel();
+        grid4 = new javax.swing.JPanel();
+        gridLabel4 = new javax.swing.JLabel();
+        grid5 = new javax.swing.JPanel();
+        gridLabel5 = new javax.swing.JLabel();
+        grid6 = new javax.swing.JPanel();
+        gridLabel6 = new javax.swing.JLabel();
+        grid7 = new javax.swing.JPanel();
+        gridLabel7 = new javax.swing.JLabel();
+        grid8 = new javax.swing.JPanel();
+        gridLabel8 = new javax.swing.JLabel();
+        grid9 = new javax.swing.JPanel();
+        gridLabel9 = new javax.swing.JLabel();
+        click1 = new javax.swing.JPanel();
+        clickLabel1 = new javax.swing.JLabel();
+        click2 = new javax.swing.JPanel();
+        clickLabel2 = new javax.swing.JLabel();
+        click3 = new javax.swing.JPanel();
+        clickLabel3 = new javax.swing.JLabel();
+        click4 = new javax.swing.JPanel();
+        clickLabel4 = new javax.swing.JLabel();
+        click5 = new javax.swing.JPanel();
+        clickLabel5 = new javax.swing.JLabel();
+        click6 = new javax.swing.JPanel();
+        clickLabel6 = new javax.swing.JLabel();
+        click7 = new javax.swing.JPanel();
+        clickLabel7 = new javax.swing.JLabel();
+        click8 = new javax.swing.JPanel();
+        clickLabel8 = new javax.swing.JLabel();
+        click9 = new javax.swing.JPanel();
+        clickLabel9 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        gridSave = new javax.swing.JButton();
+        gridReset = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton10 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        solPath = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        testedNodes = new javax.swing.JTextArea();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(810, 600));
-        setPreferredSize(new java.awt.Dimension(810, 600));
-        setSize(new java.awt.Dimension(810, 600));
+        setMinimumSize(new java.awt.Dimension(810, 630));
+        setPreferredSize(new java.awt.Dimension(820, 620));
+        setResizable(false);
+        setSize(new java.awt.Dimension(810, 630));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setLayout(new java.awt.GridLayout(3, 3, -1, -1));
-
-        one.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        one.setText("1");
-        one.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                oneActionPerformed(evt);
-            }
-        });
-        jPanel1.add(one);
-
-        two.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        two.setText("2");
-        jPanel1.add(two);
-
-        three.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        three.setText("3");
-        jPanel1.add(three);
-
-        four.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        four.setText("4");
-        jPanel1.add(four);
-
-        five.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        five.setText("5");
-        jPanel1.add(five);
-
-        six.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        six.setText("6");
-        jPanel1.add(six);
-
-        seven.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        seven.setText("7");
-        jPanel1.add(seven);
-
-        eight.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        eight.setText("8");
-        jPanel1.add(eight);
-        jPanel1.add(empty);
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 245, 340, 280));
-
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A*", "Greedy" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 90, 230, -1));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Manhattan distance", "Number of blocks in wrong place" }));
-        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 140, 230, -1));
-
-        jLabel1.setText("Algorithm");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 90, 20));
-
-        jLabel2.setText("Heuristic");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 90, 20));
-
-        jLabel3.setText("Start point :");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 70, -1));
-
-        jLabel4.setText("End point :");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 70, -1));
-
-        jTextField1.setText("5,4,2,7,3,8,1,0,6");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 230, -1));
-
-        jTextField2.setText("1,2,3,4,5,6,7,8,0");
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 230, -1));
-
-        jButton10.setText("Start");
-        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 120, -1));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 410, 210));
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        solPath.setColumns(20);
-        solPath.setRows(5);
-        solPath.setEnabled(false);
-        jScrollPane1.setViewportView(solPath);
+        jPanel4.setBackground(new java.awt.Color(18, 21, 30));
+        jPanel4.setLayout(new java.awt.GridLayout(3, 3, 3, 3));
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 210));
+        grid1.setBackground(new java.awt.Color(204, 0, 0));
+        grid1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid1MouseClicked(evt);
+            }
+        });
+        grid1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        testedNodes.setColumns(20);
-        testedNodes.setRows(5);
-        testedNodes.setEnabled(false);
-        jScrollPane2.setViewportView(testedNodes);
+        gridLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        grid1.add(gridLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 286, -1, 230));
+        jPanel4.add(grid1);
 
-        jLabel5.setText("Solution path");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 80, -1));
+        grid2.setBackground(new java.awt.Color(204, 0, 0));
+        grid2.setForeground(new java.awt.Color(255, 255, 255));
+        grid2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid2MouseClicked(evt);
+            }
+        });
+        grid2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setText("Tested nodes");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 90, -1));
+        gridLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        grid2.add(gridLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 270, 530));
+        jPanel4.add(grid2);
+
+        grid3.setBackground(new java.awt.Color(204, 0, 0));
+        grid3.setForeground(new java.awt.Color(255, 255, 255));
+        grid3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid3MouseClicked(evt);
+            }
+        });
+        grid3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gridLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        grid3.add(gridLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel4.add(grid3);
+
+        grid4.setBackground(new java.awt.Color(204, 0, 0));
+        grid4.setForeground(new java.awt.Color(255, 255, 255));
+        grid4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid4MouseClicked(evt);
+            }
+        });
+        grid4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gridLabel4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        grid4.add(gridLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel4.add(grid4);
+
+        grid5.setBackground(new java.awt.Color(204, 0, 0));
+        grid5.setForeground(new java.awt.Color(255, 255, 255));
+        grid5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid5MouseClicked(evt);
+            }
+        });
+        grid5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gridLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        grid5.add(gridLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel4.add(grid5);
+
+        grid6.setBackground(new java.awt.Color(204, 0, 0));
+        grid6.setForeground(new java.awt.Color(255, 255, 255));
+        grid6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid6MouseClicked(evt);
+            }
+        });
+        grid6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gridLabel6.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        grid6.add(gridLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel4.add(grid6);
+
+        grid7.setBackground(new java.awt.Color(204, 0, 0));
+        grid7.setForeground(new java.awt.Color(255, 255, 255));
+        grid7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid7MouseClicked(evt);
+            }
+        });
+        grid7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gridLabel7.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        grid7.add(gridLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel4.add(grid7);
+
+        grid8.setBackground(new java.awt.Color(204, 0, 0));
+        grid8.setForeground(new java.awt.Color(255, 255, 255));
+        grid8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid8MouseClicked(evt);
+            }
+        });
+        grid8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gridLabel8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        grid8.add(gridLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel4.add(grid8);
+
+        grid9.setBackground(new java.awt.Color(204, 0, 0));
+        grid9.setForeground(new java.awt.Color(255, 255, 255));
+        grid9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid9MouseClicked(evt);
+            }
+        });
+        grid9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gridLabel9.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        grid9.add(gridLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel4.add(grid9);
+
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 290, 280));
+
+        click1.setBackground(new java.awt.Color(204, 0, 0));
+        click1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        click1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                click1MouseClicked(evt);
+            }
+        });
+        click1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        clickLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        clickLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        clickLabel1.setText("1");
+        click1.add(clickLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel3.add(click1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, -1, -1));
+
+        click2.setBackground(new java.awt.Color(204, 0, 0));
+        click2.setForeground(new java.awt.Color(255, 255, 255));
+        click2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        click2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                click2MouseClicked(evt);
+            }
+        });
+        click2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        clickLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        clickLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        clickLabel2.setText("2");
+        click2.add(clickLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel3.add(click2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, -1, -1));
+
+        click3.setBackground(new java.awt.Color(204, 0, 0));
+        click3.setForeground(new java.awt.Color(255, 255, 255));
+        click3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        click3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                click3MouseClicked(evt);
+            }
+        });
+        click3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        clickLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        clickLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        clickLabel3.setText("3");
+        click3.add(clickLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel3.add(click3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, -1, -1));
+
+        click4.setBackground(new java.awt.Color(204, 0, 0));
+        click4.setForeground(new java.awt.Color(255, 255, 255));
+        click4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        click4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                click4MouseClicked(evt);
+            }
+        });
+        click4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        clickLabel4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        clickLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        clickLabel4.setText("4");
+        click4.add(clickLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel3.add(click4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, -1, -1));
+
+        click5.setBackground(new java.awt.Color(204, 0, 0));
+        click5.setForeground(new java.awt.Color(255, 255, 255));
+        click5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        click5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                click5MouseClicked(evt);
+            }
+        });
+        click5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        clickLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        clickLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        clickLabel5.setText("5");
+        click5.add(clickLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel3.add(click5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, -1, -1));
+
+        click6.setBackground(new java.awt.Color(204, 0, 0));
+        click6.setForeground(new java.awt.Color(255, 255, 255));
+        click6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        click6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                click6MouseClicked(evt);
+            }
+        });
+        click6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        clickLabel6.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        clickLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        clickLabel6.setText("6");
+        click6.add(clickLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel3.add(click6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 250, -1, -1));
+
+        click7.setBackground(new java.awt.Color(204, 0, 0));
+        click7.setForeground(new java.awt.Color(255, 255, 255));
+        click7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        click7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                click7MouseClicked(evt);
+            }
+        });
+        click7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        clickLabel7.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        clickLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        clickLabel7.setText("7");
+        click7.add(clickLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel3.add(click7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, -1, -1));
+
+        click8.setBackground(new java.awt.Color(204, 0, 0));
+        click8.setForeground(new java.awt.Color(255, 255, 255));
+        click8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        click8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                click8MouseClicked(evt);
+            }
+        });
+        click8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        clickLabel8.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        clickLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        clickLabel8.setText("8");
+        click8.add(clickLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel3.add(click8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, -1, -1));
+
+        click9.setBackground(new java.awt.Color(204, 0, 0));
+        click9.setForeground(new java.awt.Color(255, 255, 255));
+        click9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        click9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                click9MouseClicked(evt);
+            }
+        });
+        click9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        clickLabel9.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        clickLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        clickLabel9.setText(" ");
+        click9.add(clickLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel3.add(click9, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 350, -1, -1));
+
+        jLabel26.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel26.setText(" by click on the squares in the order you want");
+        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 580, 40));
+
+        jLabel27.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel27.setText("Choose your start point");
+        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 300, 40));
+
+        gridSave.setFont(new java.awt.Font("Ravie", 0, 24)); // NOI18N
+        gridSave.setForeground(new java.awt.Color(204, 204, 204));
+        gridSave.setText("Save");
+        gridSave.setContentAreaFilled(false);
+        gridSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        gridSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gridSaveActionPerformed(evt);
+            }
+        });
+        jPanel3.add(gridSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 470, -1, -1));
+
+        gridReset.setFont(new java.awt.Font("Ravie", 0, 24)); // NOI18N
+        gridReset.setForeground(new java.awt.Color(204, 204, 204));
+        gridReset.setText("Reset");
+        gridReset.setContentAreaFilled(false);
+        gridReset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        gridReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gridResetActionPerformed(evt);
+            }
+        });
+        jPanel3.add(gridReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 469, -1, 50));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Microsoft\\Documents\\NetBeansProjects\\Ai-Project1\\Ai-Project1\\src\\main\\java\\images\\turn-back_70x45.png")); // NOI18N
+        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, 90, 60));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Microsoft\\Documents\\NetBeansProjects\\Ai-Project1\\Ai-Project1\\src\\main\\java\\images\\Untitled.png")); // NOI18N
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, -7, 820, 660));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 650));
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(204, 204, 204));
+        jRadioButton1.setSelected(true);
+        jRadioButton1.setText("A*");
+        jRadioButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, -1, 40));
+
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jRadioButton2.setForeground(new java.awt.Color(204, 204, 204));
+        jRadioButton2.setText("Greedy");
+        jRadioButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, 40));
+
+        jLabel3.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel3.setText("Algorithm:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 140, -1));
+
+        jLabel4.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel4.setText("Heuristic:");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 140, -1));
+
+        buttonGroup2.add(jRadioButton3);
+        jRadioButton3.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jRadioButton3.setForeground(new java.awt.Color(204, 204, 204));
+        jRadioButton3.setSelected(true);
+        jRadioButton3.setText("Manhattan distance");
+        jRadioButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 290, 40));
+
+        buttonGroup2.add(jRadioButton4);
+        jRadioButton4.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jRadioButton4.setForeground(new java.awt.Color(204, 204, 204));
+        jRadioButton4.setText("# of blocks in wrong place");
+        jRadioButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, -1, 40));
+
+        jLabel5.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel5.setText("End Point:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 140, -1));
+
+        jLabel6.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel6.setText("Start Point:");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 160, -1));
+
+        jButton1.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(204, 204, 204));
+        jButton1.setText("Select");
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 301, 120, 40));
+
+        jButton2.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(204, 204, 204));
+        jButton2.setText("Select");
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 120, 40));
+
+        jButton4.setFont(new java.awt.Font("Ravie", 0, 36)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(204, 204, 204));
+        jButton4.setText("Solve");
+        jButton4.setContentAreaFilled(false);
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 300, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Microsoft\\Documents\\NetBeansProjects\\Ai-Project1\\Ai-Project1\\src\\main\\java\\images\\background.png")); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 600));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 600));
+
+        jButton3.setFont(new java.awt.Font("Ravie", 0, 36)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Start Game");
+        jButton3.setBorder(null);
+        jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Microsoft\\Documents\\NetBeansProjects\\Ai-Project1\\Ai-Project1\\src\\main\\java\\images\\8puzzle_810x600_2_810x600.png")); // NOI18N
+        jLabel1.setPreferredSize(new java.awt.Dimension(871, 600));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(257, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(248, 248, 248))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 530, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void oneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneActionPerformed
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_oneActionPerformed
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void click1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_click1MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+        onPanelClick(clickLabel1.getText());
+    }//GEN-LAST:event_click1MouseClicked
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void click2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_click2MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        onPanelClick(clickLabel2.getText());
+    }//GEN-LAST:event_click2MouseClicked
+
+    private void click3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_click3MouseClicked
+        // TODO add your handling code here:
+        onPanelClick(clickLabel3.getText());
+    }//GEN-LAST:event_click3MouseClicked
+
+    private void click4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_click4MouseClicked
+        // TODO add your handling code here:
+        onPanelClick(clickLabel4.getText());
+    }//GEN-LAST:event_click4MouseClicked
+
+    private void click5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_click5MouseClicked
+        // TODO add your handling code here:
+        onPanelClick(clickLabel5.getText());
+    }//GEN-LAST:event_click5MouseClicked
+
+    private void click6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_click6MouseClicked
+        // TODO add your handling code here:
+        onPanelClick(clickLabel6.getText());
+    }//GEN-LAST:event_click6MouseClicked
+
+    private void click7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_click7MouseClicked
+        // TODO add your handling code here:
+        onPanelClick(clickLabel7.getText());
+    }//GEN-LAST:event_click7MouseClicked
+
+    private void click8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_click8MouseClicked
+        // TODO add your handling code here:
+        onPanelClick(clickLabel8.getText());
+    }//GEN-LAST:event_click8MouseClicked
+
+    private void click9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_click9MouseClicked
+        // TODO add your handling code here:
+        onPanelClick(clickLabel9.getText());
+    }//GEN-LAST:event_click9MouseClicked
+
+    private void grid1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid1MouseClicked
+        // TODO add your handling code here:
+        onGridClick(gridLabel1.getText());
+        if(gridLabel1.getText().equals(" ")){
+            grid1.setBackground(color1);
+        }
+        gridLabel1.setText("");
+        grid1.setVisible(false);
+    }//GEN-LAST:event_grid1MouseClicked
+
+    private void grid2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid2MouseClicked
+        // TODO add your handling code here:
+        onGridClick(gridLabel2.getText());
+        if(gridLabel2.getText().equals(" ")){
+            grid2.setBackground(color1);
+        }
+        gridLabel2.setText("");
+        grid2.setVisible(false);
+    }//GEN-LAST:event_grid2MouseClicked
+
+    private void grid3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid3MouseClicked
+        // TODO add your handling code here:
+        onGridClick(gridLabel3.getText());
+        if(gridLabel3.getText().equals(" ")){
+            grid3.setBackground(color1);
+        }
+        gridLabel3.setText("");
+        grid3.setVisible(false);
+    }//GEN-LAST:event_grid3MouseClicked
+
+    private void grid4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid4MouseClicked
+        // TODO add your handling code here:
+        onGridClick(gridLabel4.getText());
+        if(gridLabel4.getText().equals(" ")){
+            grid4.setBackground(color1);
+        }
+        gridLabel4.setText("");
+        grid4.setVisible(false);
+    }//GEN-LAST:event_grid4MouseClicked
+
+    private void grid5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid5MouseClicked
+        // TODO add your handling code here:
+        onGridClick(gridLabel5.getText());
+        if(gridLabel5.getText().equals(" ")){
+            grid5.setBackground(color1);
+        }
+        gridLabel5.setText("");
+        grid5.setVisible(false);
+    }//GEN-LAST:event_grid5MouseClicked
+
+    private void grid6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid6MouseClicked
+        // TODO add your handling code here:
+        onGridClick(gridLabel6.getText());
+        if(gridLabel6.getText().equals(" ")){
+            grid6.setBackground(color1);
+        }
+        gridLabel6.setText("");
+        grid6.setVisible(false);
+    }//GEN-LAST:event_grid6MouseClicked
+
+    private void grid7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid7MouseClicked
+        // TODO add your handling code here:
+        onGridClick(gridLabel7.getText());
+        if(gridLabel7.getText().equals(" ")){
+            grid7.setBackground(color1);
+        }
+        gridLabel7.setText("");
+        grid7.setVisible(false);
+    }//GEN-LAST:event_grid7MouseClicked
+
+    private void grid8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid8MouseClicked
+        // TODO add your handling code here:
+        onGridClick(gridLabel8.getText());
+        if(gridLabel8.getText().equals(" ")){
+            grid8.setBackground(color1);
+        }
+        gridLabel8.setText("");
+        grid8.setVisible(false);
+    }//GEN-LAST:event_grid8MouseClicked
+
+    private void grid9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid9MouseClicked
+        // TODO add your handling code here:
+        onGridClick(gridLabel9.getText());
+        if(gridLabel9.getText().equals(" ")){
+            grid9.setBackground(color1);
+        }
+        gridLabel9.setText("");
+        grid9.setVisible(false);
+    }//GEN-LAST:event_grid9MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        jPanel1.setVisible(false);
+        jPanel2.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        jLabel27.setText("Choose your start point");
+        jPanel2.setVisible(false);
+        jPanel3.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        jLabel27.setText("Choose your end point");
+        jPanel2.setVisible(false);
+        jPanel3.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void gridResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gridResetActionPerformed
+        // TODO add your handling code here:
+        for(int i=0;i<9;i++){
+            getGridLabel()[i].setText("");
+            getGridPanel()[i].setVisible(false);
+            getClickPanel()[i].setVisible(true);
+        }
+    }//GEN-LAST:event_gridResetActionPerformed
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+        jPanel2.setVisible(true);
+        jPanel3.setVisible(false);
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void gridSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gridSaveActionPerformed
+        // TODO add your handling code here:
+        int flag=0;
+        for(int i=0;i<9;i++){
+            if(getGridLabel()[i].getText().equals("")){
+                JOptionPane.showMessageDialog(null, "You need to fill the whole board", "Error", JOptionPane.ERROR_MESSAGE);
+                flag=1;
+                break;
+            }
+        }
+        if(flag==0){
+            if(jLabel27.getText().equals("Choose your start point")){
+                for(int i=0;i<9;i++){
+                    startPoint[i]=getGridLabel()[i].getText();
+                }
+            }
+            else 
+                for(int i=0;i<9;i++){
+                    endPoint[i]=getGridLabel()[i].getText();
+                }
+            jPanel3.setVisible(false);
+            jPanel2.setVisible(true);
+        }
+    }//GEN-LAST:event_gridSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,38 +867,74 @@ public class GUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI().setVisible(true);
+                GUI gui=new GUI();
+                gui.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton eight;
-    private javax.swing.JButton empty;
-    private javax.swing.JButton five;
-    private javax.swing.JButton four;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JPanel click1;
+    private javax.swing.JPanel click2;
+    private javax.swing.JPanel click3;
+    private javax.swing.JPanel click4;
+    private javax.swing.JPanel click5;
+    private javax.swing.JPanel click6;
+    private javax.swing.JPanel click7;
+    private javax.swing.JPanel click8;
+    private javax.swing.JPanel click9;
+    private javax.swing.JLabel clickLabel1;
+    private javax.swing.JLabel clickLabel2;
+    private javax.swing.JLabel clickLabel3;
+    private javax.swing.JLabel clickLabel4;
+    private javax.swing.JLabel clickLabel5;
+    private javax.swing.JLabel clickLabel6;
+    private javax.swing.JLabel clickLabel7;
+    private javax.swing.JLabel clickLabel8;
+    private javax.swing.JLabel clickLabel9;
+    private javax.swing.JPanel grid1;
+    private javax.swing.JPanel grid2;
+    private javax.swing.JPanel grid3;
+    private javax.swing.JPanel grid4;
+    private javax.swing.JPanel grid5;
+    private javax.swing.JPanel grid6;
+    private javax.swing.JPanel grid7;
+    private javax.swing.JPanel grid8;
+    private javax.swing.JPanel grid9;
+    private javax.swing.JLabel gridLabel1;
+    private javax.swing.JLabel gridLabel2;
+    private javax.swing.JLabel gridLabel3;
+    private javax.swing.JLabel gridLabel4;
+    private javax.swing.JLabel gridLabel5;
+    private javax.swing.JLabel gridLabel6;
+    private javax.swing.JLabel gridLabel7;
+    private javax.swing.JLabel gridLabel8;
+    private javax.swing.JLabel gridLabel9;
+    private javax.swing.JButton gridReset;
+    private javax.swing.JButton gridSave;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JButton one;
-    private javax.swing.JButton seven;
-    private javax.swing.JButton six;
-    private javax.swing.JTextArea solPath;
-    private javax.swing.JTextArea testedNodes;
-    private javax.swing.JButton three;
-    private javax.swing.JButton two;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
     // End of variables declaration//GEN-END:variables
 }
