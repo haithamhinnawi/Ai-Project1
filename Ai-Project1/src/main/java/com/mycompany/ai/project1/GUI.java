@@ -26,6 +26,7 @@ public class GUI extends javax.swing.JFrame {
         initComponents();
         jPanel3.setVisible(false);
         jPanel2.setVisible(false);
+        jPanel5.setVisible(false);
         for(int i=0;i<9;i++){
             getGridPanel()[i].setVisible(false);
         }
@@ -46,6 +47,14 @@ public class GUI extends javax.swing.JFrame {
     public javax.swing.JLabel [] getClickLabel() {
         javax.swing.JLabel [] clickLabel={clickLabel1,clickLabel2,clickLabel3,clickLabel4,clickLabel5,clickLabel6,clickLabel7,clickLabel8,clickLabel9};
         return clickLabel;
+    }
+    
+    public void selectGridReset(){
+        for(int i=0;i<9;i++){
+            getGridLabel()[i].setText("");
+            getGridPanel()[i].setVisible(false);
+            getClickPanel()[i].setVisible(true);
+        }
     }
     
     public void onPanelClick(String index){
@@ -83,6 +92,33 @@ public class GUI extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        grid10 = new javax.swing.JPanel();
+        gridLabel10 = new javax.swing.JLabel();
+        grid11 = new javax.swing.JPanel();
+        gridLabel11 = new javax.swing.JLabel();
+        grid12 = new javax.swing.JPanel();
+        gridLabel12 = new javax.swing.JLabel();
+        grid13 = new javax.swing.JPanel();
+        gridLabel13 = new javax.swing.JLabel();
+        grid14 = new javax.swing.JPanel();
+        gridLabel14 = new javax.swing.JLabel();
+        grid15 = new javax.swing.JPanel();
+        gridLabel15 = new javax.swing.JLabel();
+        grid16 = new javax.swing.JPanel();
+        gridLabel16 = new javax.swing.JLabel();
+        grid17 = new javax.swing.JPanel();
+        gridLabel17 = new javax.swing.JLabel();
+        grid18 = new javax.swing.JPanel();
+        gridLabel18 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel10 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         grid1 = new javax.swing.JPanel();
@@ -139,6 +175,7 @@ public class GUI extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
@@ -146,10 +183,207 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(810, 630));
-        setPreferredSize(new java.awt.Dimension(820, 620));
+        setPreferredSize(new java.awt.Dimension(820, 630));
         setResizable(false);
         setSize(new java.awt.Dimension(810, 630));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel5.setPreferredSize(new java.awt.Dimension(814, 653));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel6.setBackground(new java.awt.Color(18, 21, 30));
+        jPanel6.setLayout(new java.awt.GridLayout(3, 3, 3, 3));
+
+        grid10.setBackground(new java.awt.Color(204, 0, 0));
+        grid10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid10MouseClicked(evt);
+            }
+        });
+        grid10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gridLabel10.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        grid10.add(gridLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel6.add(grid10);
+
+        grid11.setBackground(new java.awt.Color(204, 0, 0));
+        grid11.setForeground(new java.awt.Color(255, 255, 255));
+        grid11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid11MouseClicked(evt);
+            }
+        });
+        grid11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gridLabel11.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        grid11.add(gridLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel6.add(grid11);
+
+        grid12.setBackground(new java.awt.Color(204, 0, 0));
+        grid12.setForeground(new java.awt.Color(255, 255, 255));
+        grid12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid12MouseClicked(evt);
+            }
+        });
+        grid12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gridLabel12.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        grid12.add(gridLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel6.add(grid12);
+
+        grid13.setBackground(new java.awt.Color(204, 0, 0));
+        grid13.setForeground(new java.awt.Color(255, 255, 255));
+        grid13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid13MouseClicked(evt);
+            }
+        });
+        grid13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gridLabel13.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        grid13.add(gridLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel6.add(grid13);
+
+        grid14.setBackground(new java.awt.Color(204, 0, 0));
+        grid14.setForeground(new java.awt.Color(255, 255, 255));
+        grid14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid14MouseClicked(evt);
+            }
+        });
+        grid14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gridLabel14.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        grid14.add(gridLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel6.add(grid14);
+
+        grid15.setBackground(new java.awt.Color(204, 0, 0));
+        grid15.setForeground(new java.awt.Color(255, 255, 255));
+        grid15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid15MouseClicked(evt);
+            }
+        });
+        grid15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gridLabel15.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        grid15.add(gridLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel6.add(grid15);
+
+        grid16.setBackground(new java.awt.Color(204, 0, 0));
+        grid16.setForeground(new java.awt.Color(255, 255, 255));
+        grid16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid16MouseClicked(evt);
+            }
+        });
+        grid16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gridLabel16.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        grid16.add(gridLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel6.add(grid16);
+
+        grid17.setBackground(new java.awt.Color(204, 0, 0));
+        grid17.setForeground(new java.awt.Color(255, 255, 255));
+        grid17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid17MouseClicked(evt);
+            }
+        });
+        grid17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gridLabel17.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        grid17.add(gridLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel6.add(grid17);
+
+        grid18.setBackground(new java.awt.Color(204, 0, 0));
+        grid18.setForeground(new java.awt.Color(255, 255, 255));
+        grid18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        grid18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                grid18MouseClicked(evt);
+            }
+        });
+        grid18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gridLabel18.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        gridLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        grid18.add(gridLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 6, 54, 84));
+
+        jPanel6.add(grid18);
+
+        jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 290, 280));
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(19, 22, 29));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(204, 204, 204));
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jTextArea1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(228, 24, 15)));
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 140, 280, 310));
+
+        jLabel10.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel10.setText("Tested nodes");
+        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 110, 180, 30));
+
+        jButton5.setFont(new java.awt.Font("Ravie", 0, 24)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(204, 204, 204));
+        jButton5.setText("Solve");
+        jButton5.setContentAreaFilled(false);
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel5.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 500, 120, 40));
+
+        jButton6.setFont(new java.awt.Font("Ravie", 0, 24)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(204, 204, 204));
+        jButton6.setText("Start new game");
+        jButton6.setContentAreaFilled(false);
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 549, -1, 50));
+
+        jLabel12.setFont(new java.awt.Font("Ravie", 0, 36)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel12.setText("8 Puzzle Solver");
+        jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 390, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Microsoft\\Documents\\NetBeansProjects\\Ai-Project1\\Ai-Project1\\src\\main\\java\\images\\Untitled.png")); // NOI18N
+        jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, -7, 820, 660));
+
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 650));
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -509,24 +743,24 @@ public class GUI extends javax.swing.JFrame {
         jRadioButton1.setSelected(true);
         jRadioButton1.setText("A*");
         jRadioButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, -1, 40));
+        jPanel2.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, -1, 30));
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
         jRadioButton2.setForeground(new java.awt.Color(204, 204, 204));
         jRadioButton2.setText("Greedy");
         jRadioButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, 40));
+        jPanel2.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, 30));
 
         jLabel3.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 0, 0));
         jLabel3.setText("Algorithm:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 140, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 140, 20));
 
         jLabel4.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 0, 0));
         jLabel4.setText("Heuristic:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 140, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 140, -1));
 
         buttonGroup2.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
@@ -539,24 +773,24 @@ public class GUI extends javax.swing.JFrame {
                 jRadioButton3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 290, 40));
+        jPanel2.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 290, 40));
 
         buttonGroup2.add(jRadioButton4);
         jRadioButton4.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
         jRadioButton4.setForeground(new java.awt.Color(204, 204, 204));
         jRadioButton4.setText("# of blocks in wrong place");
         jRadioButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, -1, 40));
+        jPanel2.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, 40));
 
         jLabel5.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 0, 0));
         jLabel5.setText("End Point:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 140, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 140, -1));
 
         jLabel6.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 0, 0));
         jLabel6.setText("Start Point:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 160, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 160, -1));
 
         jButton1.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(204, 204, 204));
@@ -568,7 +802,7 @@ public class GUI extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 301, 120, 40));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 120, 40));
 
         jButton2.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(204, 204, 204));
@@ -580,17 +814,27 @@ public class GUI extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 120, 40));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, 120, 40));
 
-        jButton4.setFont(new java.awt.Font("Ravie", 0, 36)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Ravie", 0, 24)); // NOI18N
         jButton4.setForeground(new java.awt.Color(204, 204, 204));
-        jButton4.setText("Solve");
+        jButton4.setText("Next");
         jButton4.setContentAreaFilled(false);
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 300, -1));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 500, 300, -1));
+
+        jLabel11.setFont(new java.awt.Font("Ravie", 0, 36)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel11.setText("8 Puzzle Solver");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 390, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Microsoft\\Documents\\NetBeansProjects\\Ai-Project1\\Ai-Project1\\src\\main\\java\\images\\background.png")); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 600));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, -7, 820, 660));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 600));
 
@@ -613,7 +857,7 @@ public class GUI extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(257, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(248, 248, 248))
@@ -799,15 +1043,12 @@ public class GUI extends javax.swing.JFrame {
 
     private void gridResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gridResetActionPerformed
         // TODO add your handling code here:
-        for(int i=0;i<9;i++){
-            getGridLabel()[i].setText("");
-            getGridPanel()[i].setVisible(false);
-            getClickPanel()[i].setVisible(true);
-        }
+        selectGridReset();
     }//GEN-LAST:event_gridResetActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
+        selectGridReset();
         jPanel2.setVisible(true);
         jPanel3.setVisible(false);
     }//GEN-LAST:event_jLabel8MouseClicked
@@ -835,7 +1076,56 @@ public class GUI extends javax.swing.JFrame {
             jPanel3.setVisible(false);
             jPanel2.setVisible(true);
         }
+        selectGridReset();
     }//GEN-LAST:event_gridSaveActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        jPanel2.setVisible(false);
+        jPanel5.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void grid10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid10MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_grid10MouseClicked
+
+    private void grid11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid11MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_grid11MouseClicked
+
+    private void grid12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid12MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_grid12MouseClicked
+
+    private void grid13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid13MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_grid13MouseClicked
+
+    private void grid14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid14MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_grid14MouseClicked
+
+    private void grid15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid15MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_grid15MouseClicked
+
+    private void grid16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid16MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_grid16MouseClicked
+
+    private void grid17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid17MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_grid17MouseClicked
+
+    private void grid18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid18MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_grid18MouseClicked
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        jPanel5.setVisible(false);
+        jPanel2.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -895,6 +1185,15 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel clickLabel8;
     private javax.swing.JLabel clickLabel9;
     private javax.swing.JPanel grid1;
+    private javax.swing.JPanel grid10;
+    private javax.swing.JPanel grid11;
+    private javax.swing.JPanel grid12;
+    private javax.swing.JPanel grid13;
+    private javax.swing.JPanel grid14;
+    private javax.swing.JPanel grid15;
+    private javax.swing.JPanel grid16;
+    private javax.swing.JPanel grid17;
+    private javax.swing.JPanel grid18;
     private javax.swing.JPanel grid2;
     private javax.swing.JPanel grid3;
     private javax.swing.JPanel grid4;
@@ -904,6 +1203,15 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel grid8;
     private javax.swing.JPanel grid9;
     private javax.swing.JLabel gridLabel1;
+    private javax.swing.JLabel gridLabel10;
+    private javax.swing.JLabel gridLabel11;
+    private javax.swing.JLabel gridLabel12;
+    private javax.swing.JLabel gridLabel13;
+    private javax.swing.JLabel gridLabel14;
+    private javax.swing.JLabel gridLabel15;
+    private javax.swing.JLabel gridLabel16;
+    private javax.swing.JLabel gridLabel17;
+    private javax.swing.JLabel gridLabel18;
     private javax.swing.JLabel gridLabel2;
     private javax.swing.JLabel gridLabel3;
     private javax.swing.JLabel gridLabel4;
@@ -918,7 +1226,12 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
@@ -928,13 +1241,18 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
