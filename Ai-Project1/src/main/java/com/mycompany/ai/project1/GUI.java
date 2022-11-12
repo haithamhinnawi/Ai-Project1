@@ -8,17 +8,59 @@ package com.mycompany.ai.project1;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Haitham
  */
+
+class thread extends Thread {
+    //ArrayList<Board> sol;
+    GUI gui;
+    public thread(GUI g){
+        gui=g;
+    }
+    public void run(){
+        for(int i=0;i<gui.sol.size();i++){
+            for(int j=0;j<3;j++){
+                for(int k=0;k<3;k++){
+                    gui.getSolveLabel()[3*j+k].setText(gui.sol.get(i).Current[j][k]);
+                    if(gui.sol.get(i).Current[j][k].equals(" ")){
+                        gui.getSolvePanel()[3*j+k].setBackground(gui.color);
+                    }
+                    else{
+                        gui.getSolvePanel()[3*j+k].setBackground(gui.color1);
+                    }
+                }
+            }
+            gui.countPath.setText(""+i);
+            try {
+                if(gui.slow.isSelected()){
+                    TimeUnit.MILLISECONDS.sleep(1000);
+                }
+                else if(gui.medium.isSelected()){
+                    TimeUnit.MILLISECONDS.sleep(700);
+                }
+                else
+                    TimeUnit.MILLISECONDS.sleep(400);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(thread.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+}
+
+
 public class GUI extends javax.swing.JFrame {
     Color color=new Color(18,21,30);
     Color color1=new Color(204,0,0);
-        String [] startPoint=new String[9];
-        String [] endPoint=new String[9];
+        ArrayList<String> startPoint;
+        ArrayList<String> endPoint;
+        puzzleSolver solver=new puzzleSolver();
     /**
      * Creates new form GUI
      */
@@ -30,6 +72,15 @@ public class GUI extends javax.swing.JFrame {
         for(int i=0;i<9;i++){
             getGridPanel()[i].setVisible(false);
         }
+    }
+    
+    public javax.swing.JPanel [] getSolvePanel() {
+        javax.swing.JPanel [] gridPanel = {grid10,grid11,grid12,grid13,grid14,grid15,grid16,grid17,grid18};
+        return gridPanel;
+    }
+    public javax.swing.JLabel [] getSolveLabel() {
+        javax.swing.JLabel [] gridLabel={gridLabel10,gridLabel11,gridLabel12,gridLabel13,gridLabel14,gridLabel15,gridLabel16,gridLabel17,gridLabel18};
+        return gridLabel;
     }
     
     public javax.swing.JPanel [] getGridPanel() {
@@ -53,6 +104,7 @@ public class GUI extends javax.swing.JFrame {
         for(int i=0;i<9;i++){
             getGridLabel()[i].setText("");
             getGridPanel()[i].setVisible(false);
+            getGridPanel()[i].setBackground(color1);
             getClickPanel()[i].setVisible(true);
         }
     }
@@ -92,6 +144,7 @@ public class GUI extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         grid10 = new javax.swing.JPanel();
@@ -118,6 +171,12 @@ public class GUI extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
+        slow = new javax.swing.JRadioButton();
+        medium = new javax.swing.JRadioButton();
+        fast = new javax.swing.JRadioButton();
+        jLabel13 = new javax.swing.JLabel();
+        jlbl = new javax.swing.JLabel();
+        countPath = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -164,12 +223,12 @@ public class GUI extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioAStar = new javax.swing.JRadioButton();
+        jRadioGreedy = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioManhattan = new javax.swing.JRadioButton();
+        jRadioWrongPlace = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -183,7 +242,7 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(810, 630));
-        setPreferredSize(new java.awt.Dimension(820, 630));
+        setPreferredSize(new java.awt.Dimension(810, 630));
         setResizable(false);
         setSize(new java.awt.Dimension(810, 630));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -359,9 +418,15 @@ public class GUI extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("Ravie", 0, 24)); // NOI18N
         jButton5.setForeground(new java.awt.Color(204, 204, 204));
         jButton5.setText("Solve");
+        jButton5.setBorder(null);
         jButton5.setContentAreaFilled(false);
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel5.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 500, 120, 40));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, 120, 40));
 
         jButton6.setFont(new java.awt.Font("Ravie", 0, 24)); // NOI18N
         jButton6.setForeground(new java.awt.Color(204, 204, 204));
@@ -373,12 +438,50 @@ public class GUI extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 549, -1, 50));
+        jPanel5.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 550, -1, 50));
 
         jLabel12.setFont(new java.awt.Font("Ravie", 0, 36)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(204, 204, 204));
         jLabel12.setText("8 Puzzle Solver");
         jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 390, -1));
+
+        slow.setBackground(new java.awt.Color(204, 204, 204));
+        buttonGroup3.add(slow);
+        slow.setFont(new java.awt.Font("Ravie", 0, 14)); // NOI18N
+        slow.setForeground(new java.awt.Color(204, 204, 204));
+        slow.setText("Slow");
+        slow.setContentAreaFilled(false);
+        jPanel5.add(slow, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 500, -1, 30));
+
+        medium.setBackground(new java.awt.Color(204, 204, 204));
+        buttonGroup3.add(medium);
+        medium.setFont(new java.awt.Font("Ravie", 0, 14)); // NOI18N
+        medium.setForeground(new java.awt.Color(204, 204, 204));
+        medium.setSelected(true);
+        medium.setText("Medium");
+        medium.setContentAreaFilled(false);
+        jPanel5.add(medium, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 500, -1, 30));
+
+        buttonGroup3.add(fast);
+        fast.setFont(new java.awt.Font("Ravie", 0, 14)); // NOI18N
+        fast.setForeground(new java.awt.Color(204, 204, 204));
+        fast.setText("Fast");
+        jPanel5.add(fast, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 500, -1, 30));
+
+        jLabel13.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel13.setText("Speed");
+        jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 470, 90, 30));
+
+        jlbl.setFont(new java.awt.Font("Ravie", 0, 14)); // NOI18N
+        jlbl.setForeground(new java.awt.Color(204, 204, 204));
+        jlbl.setText("# of moves in solution path:");
+        jPanel5.add(jlbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 270, 40));
+
+        countPath.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        countPath.setForeground(new java.awt.Color(204, 204, 204));
+        countPath.setText("0");
+        jPanel5.add(countPath, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, 60, 40));
 
         jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Microsoft\\Documents\\NetBeansProjects\\Ai-Project1\\Ai-Project1\\src\\main\\java\\images\\Untitled.png")); // NOI18N
         jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, -7, 820, 660));
@@ -737,20 +840,20 @@ public class GUI extends javax.swing.JFrame {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(204, 204, 204));
-        jRadioButton1.setSelected(true);
-        jRadioButton1.setText("A*");
-        jRadioButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, -1, 30));
+        buttonGroup1.add(jRadioAStar);
+        jRadioAStar.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jRadioAStar.setForeground(new java.awt.Color(204, 204, 204));
+        jRadioAStar.setSelected(true);
+        jRadioAStar.setText("A*");
+        jRadioAStar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(jRadioAStar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, -1, 30));
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(204, 204, 204));
-        jRadioButton2.setText("Greedy");
-        jRadioButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, 30));
+        buttonGroup1.add(jRadioGreedy);
+        jRadioGreedy.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jRadioGreedy.setForeground(new java.awt.Color(204, 204, 204));
+        jRadioGreedy.setText("Greedy");
+        jRadioGreedy.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(jRadioGreedy, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, 30));
 
         jLabel3.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 0, 0));
@@ -762,25 +865,25 @@ public class GUI extends javax.swing.JFrame {
         jLabel4.setText("Heuristic:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 140, -1));
 
-        buttonGroup2.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
-        jRadioButton3.setForeground(new java.awt.Color(204, 204, 204));
-        jRadioButton3.setSelected(true);
-        jRadioButton3.setText("Manhattan distance");
-        jRadioButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup2.add(jRadioManhattan);
+        jRadioManhattan.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jRadioManhattan.setForeground(new java.awt.Color(204, 204, 204));
+        jRadioManhattan.setSelected(true);
+        jRadioManhattan.setText("Manhattan distance");
+        jRadioManhattan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jRadioManhattan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                jRadioManhattanActionPerformed(evt);
             }
         });
-        jPanel2.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 290, 40));
+        jPanel2.add(jRadioManhattan, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 290, 40));
 
-        buttonGroup2.add(jRadioButton4);
-        jRadioButton4.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
-        jRadioButton4.setForeground(new java.awt.Color(204, 204, 204));
-        jRadioButton4.setText("# of blocks in wrong place");
-        jRadioButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, 40));
+        buttonGroup2.add(jRadioWrongPlace);
+        jRadioWrongPlace.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
+        jRadioWrongPlace.setForeground(new java.awt.Color(204, 204, 204));
+        jRadioWrongPlace.setText("# of blocks in wrong place");
+        jRadioWrongPlace.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(jRadioWrongPlace, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, 40));
 
         jLabel5.setFont(new java.awt.Font("Ravie", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 0, 0));
@@ -838,6 +941,8 @@ public class GUI extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 600));
 
+        jPanel1.setPreferredSize(new java.awt.Dimension(814, 653));
+
         jButton3.setFont(new java.awt.Font("Ravie", 0, 36)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Start Game");
@@ -882,9 +987,9 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void jRadioManhattanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioManhattanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_jRadioManhattanActionPerformed
 
     private void click1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_click1MouseClicked
         // TODO add your handling code here:
@@ -1065,24 +1170,55 @@ public class GUI extends javax.swing.JFrame {
         }
         if(flag==0){
             if(jLabel27.getText().equals("Choose your start point")){
+                startPoint=new ArrayList<>();
                 for(int i=0;i<9;i++){
-                    startPoint[i]=getGridLabel()[i].getText();
+                    startPoint.add(getGridLabel()[i].getText());
                 }
             }
-            else 
+            else {
+                endPoint=new ArrayList<>();
                 for(int i=0;i<9;i++){
-                    endPoint[i]=getGridLabel()[i].getText();
+                    endPoint.add(getGridLabel()[i].getText());
                 }
+            }
             jPanel3.setVisible(false);
             jPanel2.setVisible(true);
         }
         selectGridReset();
     }//GEN-LAST:event_gridSaveActionPerformed
-
+    boolean AStar,Manhattan;
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        jPanel2.setVisible(false);
-        jPanel5.setVisible(true);
+        countPath.setText("0");
+        AStar=false;Manhattan=false;
+        if(!startPoint.isEmpty() && !endPoint.isEmpty()){
+                for(int k=0;k<9;k++){
+                    getSolveLabel()[k].setText(startPoint.get(k));
+                    if(startPoint.get(k).equals(" ")){
+                        getSolvePanel()[k].setBackground(color);
+                    }
+                    else{
+                        getSolvePanel()[k].setBackground(color1);
+                    }
+                }
+                if(jRadioAStar.isSelected()){
+                    AStar=true;
+                }
+                else{
+                    AStar=false;
+                }
+                if(jRadioManhattan.isSelected()){
+                    Manhattan=true;
+                }
+                else{
+                    Manhattan=false;
+                }
+            jPanel2.setVisible(false);
+            jPanel5.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "You should select start point and end point", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void grid10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid10MouseClicked
@@ -1123,9 +1259,61 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        jTextArea1.setText("");
         jPanel5.setVisible(false);
         jPanel2.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
+    public void setCurrentBoard(Board board){
+        for(int j=0;j<3;j++){
+            for(int k=0;k<3;k++){
+                getSolveLabel()[3*j+k].setText(board.Current[j][k]);
+                if(board.Current[j][k].equals(" ")){
+                    getSolvePanel()[3*j+k].setBackground(color);
+                }
+                else{
+                    getSolvePanel()[3*j+k].setBackground(color1);
+                }
+            }
+        }
+    }
+    int b=0;
+    ArrayList<Board> sol=new ArrayList<>();
+    
+    
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        jTextArea1.setText("");
+        String[][] st=new String[3][3];
+        String[][] endd=new String[3][3];
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                st[i][j]=startPoint.get(3*i+j);
+            }
+        }
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                endd[i][j]=endPoint.get(3*i+j);
+            }
+        }
+        Board start=new Board(st);
+        Board end=new Board(endd);
+        jTextArea1.setText("");
+        Board node;
+        if(AStar){
+            node=solver.aStar(start, end, Manhattan);
+        }
+        else{
+            node=solver.Greedy(start, end, Manhattan);
+        }
+        sol=solver.solution(node);
+        thread T=new thread(this);
+        T.start();
+        jTextArea1.setText("Number of Tested Nodes: "+solver.testedNodes.size()+"\n");
+        for(int o=1;o<solver.testedNodes.size();o++){
+            jTextArea1.append(solver.testedNodes.get(o).toString());
+        }
+             
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1166,6 +1354,7 @@ public class GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JPanel click1;
     private javax.swing.JPanel click2;
     private javax.swing.JPanel click3;
@@ -1184,6 +1373,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel clickLabel7;
     private javax.swing.JLabel clickLabel8;
     private javax.swing.JLabel clickLabel9;
+    public javax.swing.JLabel countPath;
+    public javax.swing.JRadioButton fast;
     private javax.swing.JPanel grid1;
     private javax.swing.JPanel grid10;
     private javax.swing.JPanel grid11;
@@ -1232,6 +1423,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
@@ -1248,11 +1440,14 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioAStar;
+    private javax.swing.JRadioButton jRadioGreedy;
+    private javax.swing.JRadioButton jRadioManhattan;
+    private javax.swing.JRadioButton jRadioWrongPlace;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    public javax.swing.JLabel jlbl;
+    public javax.swing.JRadioButton medium;
+    public javax.swing.JRadioButton slow;
     // End of variables declaration//GEN-END:variables
 }
