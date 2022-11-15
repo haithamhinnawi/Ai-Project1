@@ -29,25 +29,21 @@ public class Board implements Comparable<Board>{
         if(i<2){
             Board child=new Board(swapMove(this.Current,i+1,j));
             child.parent=this;
-//            child.cost=parent.cost+1;
             Children.add(child);
         }
         if(i>0){
             Board child1=new Board(swapMove(this.Current,i-1,j));
             child1.parent=this;
-//            child1.cost=parent.cost+1;
             Children.add(child1);
         }
         if(j<2){
             Board child2=new Board(swapMove(this.Current,i,j+1));
             child2.parent=this;
-//            child2.cost=parent.cost+1;
             Children.add(child2);
         }
         if(j>0){
             Board child3=new Board(swapMove(this.Current,i,j-1));
             child3.parent=this;
-//            child3.cost=parent.cost+1;
             Children.add(child3);
         }
         return Children;
