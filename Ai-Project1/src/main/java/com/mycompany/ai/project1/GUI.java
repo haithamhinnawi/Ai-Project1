@@ -1306,6 +1306,9 @@ public class GUI extends javax.swing.JFrame {
             node=solver.Greedy(start, end, Manhattan);
         }
         sol=solver.solution(node);
+        for(int a=0;a<sol.size();a++){
+            System.out.println(sol.get(a));
+        }
         thread T=new thread(this);
         T.start();
         jTextArea1.setText("Number of Tested Nodes: "+solver.testedNodes.size()+"\n");
